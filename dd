@@ -3,3 +3,7 @@
 
     @Query("SELECT s FROM Shop s WHERE s.id NOT IN (SELECT a.shopId FROM Ads a WHERE a.status = true)")
     List<Shop> findRegularShops();
+
+    public interface UserRepository extends JpaRepository<User, Long> {
+        Optional<User> findByEmail(String email);
+    }
